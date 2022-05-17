@@ -1,0 +1,43 @@
+
+.App {
+  text-align: center;
+}
+.login-container{
+  /* height: calc(100vh - 68px); */
+  /* border-radius: 10px; */
+  /* box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); */
+  /* height: fit-content; */
+  /* margin-top: 20; */
+  /* max-width: 500px; */
+  min-width: 100vw;
+  
+  height: calc(100vh - 64px);
+  background-image: url(https://picsum.photos/1600/900);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+
+  
+}
+.login-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  max-width: 500px;
+  margin: auto ;
+  padding: 2rem 3rem;
+}
+
+.login-avatar{
+  background-color: #046582;
+  border-radius: 50%;
+  padding: 2rem;
+
+}
