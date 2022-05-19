@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   Container,
   Box,
@@ -11,14 +10,15 @@ import {
 import { useNavigate } from "react-router-dom";
 import blogPng from "../assets/blok.png";
 import googlePng from "../assets/google.png";
-import { AuthContext } from "../context/AuthContextProvider";
+import {  useAuth } from "../context/AuthContextProvider";
 import { toastErrorNotify, toastSuccessNotify } from "../utils/toastNotify";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
+
 const Register = () => {
   const navigate = useNavigate();
-  const { signup,loginWithGoogle } = useContext(AuthContext);
+  const {signup, loginWithGoogle} = useAuth();
 
   const initialValues = {
     email: "",

@@ -6,10 +6,7 @@ import {
   signOut,
   signInWithPopup,
   onAuthStateChanged,
-  GoogleAuthProvider,
 } from "firebase/auth";
-
-
 
 export const AuthContext = createContext();
 
@@ -19,7 +16,6 @@ export const useAuth = () => {
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
-
 
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -38,19 +34,8 @@ export const AuthContextProvider = ({ children }) => {
   //       console.log(err);
   //     });
   // };
-
-    const loginWithGoogle = () => {
-
-      signInWithPopup(auth, googleProvider)
-          .then((result) => {
-              console.log(result)
-    
-
-          }).catch((error) => {
-              console.log(error)
-          });
-  }
- const unSubscribe = (setCurrentUser) => {
+  useEffect(() => {
+  const unSubscribe = 
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setCurrentUser(currentUser);
@@ -58,10 +43,20 @@ export const AuthContextProvider = ({ children }) => {
         setCurrentUser(false);
       }
     });
+    return unSubscribe
+ 
+}, []);
+
+  const loginWithGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-  useEffect(() => {
-    unSubscribe(setCurrentUser);
-  }, []);
+
 
   return (
     <AuthContext.Provider

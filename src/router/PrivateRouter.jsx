@@ -1,20 +1,24 @@
 import React, { useContext } from "react";
 import { AuthContext, useAuth } from "../context/AuthContextProvider";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
+
 
 const PrivateRouter = () => {
+  let location = useLocation()
 
 
-  // const { currentUser } = useContext(AuthContext);
+//  const user = useContext(AuthContext);
+//  console.log(user.currentUser)
   const { currentUser } = useAuth();
   console.log(currentUser);
-  console.log(currentUser?.displayName );
-  return currentUser?.displayName !== undefined ? (
-    <Outlet />
-  ) : (
-    <Navigate to={"/login"} />
-  );
-  //return currentUser ? <Outlet /> : <Navigate to={"/login"}/>
+  console.log(currentUser?.uid);
+  if (!currentUser) {
+    
+    return <Navigate to="/login" state={{ from: location }} replace />
+  }
+  else{
+    return <Outlet />
+  }
 };
 
 export default PrivateRouter;

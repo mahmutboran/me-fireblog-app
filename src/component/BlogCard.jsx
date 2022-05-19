@@ -97,7 +97,7 @@ const BlogCard = ({ item }) => {
           <FavoriteIcon
             style={{
               marginRight: "7px",
-              color: likeCount[currentUser.uid] ? "red" : "gray",
+              color: likeCount[currentUser?.uid] ? "red" : "gray",
             }}
           />
         </IconButton>

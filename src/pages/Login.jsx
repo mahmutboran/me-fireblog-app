@@ -15,11 +15,12 @@ import {  useAuth } from "../context/AuthContextProvider";
 import { toastErrorNotify, toastSuccessNotify } from "../utils/toastNotify";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { loginWithGoogle } from "../utils/firebaseUtil";
+
+
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login ,loginWithGoogle} = useAuth();
 
   const initialValues = {
     email: "",

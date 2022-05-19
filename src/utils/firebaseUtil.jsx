@@ -2,7 +2,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const app = initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_apiKey,
@@ -17,22 +17,5 @@ const app = initializeApp({
 export const auth = getAuth(app);
 export const firebaseDB = getDatabase(app);
 export const googleProvider = new GoogleAuthProvider();
-// export  const loginWithGoogle = () => {
-//     googleProvider.setCustomParameters({ prompt: "select_account" });
-//     signInWithPopup(auth, googleProvider)
-//       .then((res) => {})
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-  export const loginWithGoogle = () => {
 
-    signInWithPopup(auth, googleProvider)
-        .then((result) => {
-            console.log(result)
-  
 
-        }).catch((error) => {
-            console.log(error)
-        });
-}
