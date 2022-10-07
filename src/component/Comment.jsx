@@ -49,7 +49,7 @@ export default function Comment({ item }) {
   let helperText = `${100 - comment?.length}/100`;
 
   return (
-    <div style={{ padding: 10 }}>
+    <div >
       <IconButton
         aria-label="share"
         onClick={handleClickOpen}

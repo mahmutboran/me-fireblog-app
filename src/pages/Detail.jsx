@@ -96,9 +96,11 @@ const Details = () => {
                   color: item[0].likeCount[currentUser.uid] ? "red" : "gray",
                 }}
               />
+              <Typography sx={{ fontSize: 20 }}>
               {Object.values(item[0].likeCount).reduce((a, b) => a + b, 0)}
+              </Typography>
             </Button>
-            <Comment item={item[0]} />
+            <Comment item={item[0]}/>
             <Typography sx={{ fontSize: 20 }}>
               {Object.keys(item[0].comments).length}
             </Typography>
