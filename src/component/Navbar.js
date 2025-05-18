@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import cwlogo from "../assets/cw.jpeg"
+import blog from "../assets/blog.png"
 import { Link,  useNavigate} from "react-router-dom";
 import { AuthContext } from '../context/AuthContextProvider';
 
@@ -47,12 +47,12 @@ export default function MenuAppBar() {
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            color= "warning"
             aria-label="menu"
             sx={{ mr: 2 }}
             onClick={handleDashboard}
           >
-           <img src={ cwlogo } alt="logo" width={40}  />
+          <img src={ blog } alt="logo" width={60}  />
           </IconButton>
           <Typography variant="h6"  component="div" sx={{ flexGrow: 1,fontFamily:"Girassol",cursor:"pointer" }} onClick={()=> navigate("/") }>
            ———<span style={{ fontSize:"30px",color:"wheat" }} >{"<Boran&/>"}</span>BLOG———           
